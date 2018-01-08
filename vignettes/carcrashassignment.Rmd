@@ -1,0 +1,47 @@
+---
+title: "Car crash Assignement"
+author: "Miguel Angel Regueira"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+library(carcrashassignment)
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+knitr::opts_knit$set(root.dir = system.file("data", package = "carcrashassignment"))
+```
+
+Together with this package it has been distributed some sample data for years 2014 and 2015. First, let's generate expected file name and later let's load the data into a dataframe.
+
+```{r load_data}
+make_filename(2014)
+file <- file.path(system.file("data/", package = "carcrashassignment"), make_filename(2014))
+data <- fars_read(file)
+class(data)
+str(data)
+```
+
+
+```{r read_year}
+data <- fars_read_years(years = c(2014, 2015))
+```
+
+
+```{r summary}
+summary <- fars_summarize_years(years = c(2014, 2015))
+knitr::kable(summary)
+```
+
+
+```{r state}
+fars_map_state(state.num = 8, year = 2014)
+```
+
+

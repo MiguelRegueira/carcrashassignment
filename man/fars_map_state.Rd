@@ -19,7 +19,9 @@ This function requires libraries \code{dplyr},
 \code{maps} and \code{graphics}
 }
 \examples{
-data <- fars_map_state(state.num = 8, year = 2013)
+\dontrun{
+data <- fars_map_state(state.num = 12, year = 2014)
+}
 
 }
 \seealso{

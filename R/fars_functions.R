@@ -16,7 +16,9 @@
 #' @seealso \code{\link{read_csv}}
 #'
 #' @examples
+#' \dontrun{
 #' data <- fars_read(filename = "./data/accident_2013.csv.bz2")
+#' }
 #'
 #' @export
 fars_read <- function(filename) {
@@ -40,7 +42,9 @@ fars_read <- function(filename) {
 #' @return A character string of the file name include the year
 #'
 #' @examples
-#' filename <- make_filename(year = 2013)
+#' \dontrun{
+#' filename <- make_filename(year = 2014)
+#' }
 #'
 #' @export
 make_filename <- function(year) {
@@ -64,7 +68,9 @@ make_filename <- function(year) {
 #' @seealso \code{\link{fars_read}}
 #'
 #' @examples
-#' data <- fars_read_years(years = c(2013, 2014))
+#' \dontrun{
+#' data <- fars_read_years(years = c(2014, 2015))
+#' }
 #'
 #' @export
 fars_read_years <- function(years) {
@@ -97,7 +103,9 @@ fars_read_years <- function(years) {
 #' @seealso \code{\link{fars_read_years}}
 #'
 #' @examples
-#' data <- fars_summarize_years(years = c(2013, 2014))
+#' \dontrun{
+#' data <- fars_summarize_years(years = c(2014, 2015))
+#' }
 #'
 #' @export
 fars_summarize_years <- function(years) {
@@ -122,7 +130,9 @@ fars_summarize_years <- function(years) {
 #' \code{maps} and \code{graphics}
 #'
 #' @examples
-#' data <- fars_map_state(state.num = 8, year = 2013)
+#' \dontrun{
+#' data <- fars_map_state(state.num = 12, year = 2014)
+#' }
 #'
 #' @export
 fars_map_state <- function(state.num, year) {

@@ -19,6 +19,8 @@ A character string of the file name include the year
 Create data file name including year
 }
 \examples{
-filename <- make_filename(year = 2013)
+\dontrun{
+filename <- make_filename(year = 2014)
+}
 
 }

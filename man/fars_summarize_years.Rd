@@ -18,7 +18,9 @@ Summarize the information of the years  providing the number of
   accidents per month and year
 }
 \examples{
-data <- fars_summarize_years(years = c(2013, 2014))
+\dontrun{
+data <- fars_summarize_years(years = c(2014, 2015))
+}
 
 }
 \seealso{

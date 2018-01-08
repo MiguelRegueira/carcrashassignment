@@ -20,7 +20,9 @@ This function relays on libraries \code{dplyr::tbl_df}
   and \code{readr::read_csv}
 }
 \examples{
+\dontrun{
 data <- fars_read(filename = "./data/accident_2013.csv.bz2")
+}
 
 }
 \seealso{

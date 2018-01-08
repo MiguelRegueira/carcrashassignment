@@ -18,7 +18,9 @@ Read month and year from one or several years passed in \code{year}
   input
 }
 \examples{
-data <- fars_read_years(years = c(2013, 2014))
+\dontrun{
+data <- fars_read_years(years = c(2014, 2015))
+}
 
 }
 \seealso{

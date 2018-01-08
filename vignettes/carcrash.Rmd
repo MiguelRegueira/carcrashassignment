@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 knitr::opts_knit$set(root.dir = system.file("data", package = "carcrashassignment"))
 ```
 
-Together with this package it has been distributed some sample data for years 2014 and 2015. First, let's generate expected file name and later let's load the data into a dataframe.
+Together with this package it has been distributed some sample data for years 2014 and 2015. First, let's generate expected file name and later let's load the data into a data frame.
 
 ```{r load_data}
 make_filename(2014)
@@ -28,17 +28,22 @@ class(data)
 str(data)
 ```
 
+With function fars_read_years it can be obtained in a variable information of several years
 
 ```{r read_year}
 data <- fars_read_years(years = c(2014, 2015))
+class(data)
+data
 ```
 
+All this car accidents data can be summarize easily for a list of years to obtain the number of accidents per year per month.
 
 ```{r summary}
 summary <- fars_summarize_years(years = c(2014, 2015))
 knitr::kable(summary)
 ```
 
+At last, car accidents occur during a year and in a state can be plotted, as in the following example for accidents in Florida in 2014.
 
 ```{r state}
 fars_map_state(state.num = 12, year = 2014)

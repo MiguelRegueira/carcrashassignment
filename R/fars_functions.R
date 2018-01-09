@@ -80,7 +80,7 @@ fars_read_years <- function(years) {
                         dat <- fars_read(file)
 
                         dplyr::mutate(dat, year = year) %>%
-                                dplyr::select(MONTH, year)
+                                dplyr::select_("MONTH", "year")
                 }, error = function(e) {
                         warning("invalid year: ", year)
                         return(NULL)
@@ -99,6 +99,7 @@ fars_read_years <- function(years) {
 #'   of the different years provided in \code{years} input
 #'
 #' @importFrom magrittr %>%
+#' @importFrom dplyr n
 #'
 #' @seealso \code{\link{fars_read_years}}
 #'
@@ -111,9 +112,9 @@ fars_read_years <- function(years) {
 fars_summarize_years <- function(years) {
         dat_list <- fars_read_years(years)
         dplyr::bind_rows(dat_list) %>%
-                dplyr::group_by(year, MONTH) %>%
+                dplyr::group_by_("year", "MONTH") %>%
                 dplyr::summarize(n = n()) %>%
-                tidyr::spread(year, n)
+                tidyr::spread_("year", "n")
 }
 
 #' Accidents map
@@ -142,7 +143,7 @@ fars_map_state <- function(state.num, year) {
 
         if(!(state.num %in% unique(data$STATE)))
                 stop("invalid STATE number: ", state.num)
-        data.sub <- dplyr::filter(data, STATE == state.num)
+        data.sub <- dplyr::filter_(data, "STATE == state.num")
         if(nrow(data.sub) == 0L) {
                 message("no accidents to plot")
                 return(invisible(NULL))
